@@ -103,17 +103,37 @@
 // якщо ділиться  без остачі на 5 - виводить в консоль 'buzz',
 // якщо ділиться  без остачі і на 3, і на 5 - виводить в консоль 'fizzbuzz'.
 
-function fizzBuzz(num) {
-    for (let i = 1; i <= num; i++) {
-         if (i % 3 === 0 && i % 5 === 0) {
-            console.log(i, 'fizzbuzz')
-        } else if (i % 5 === 0) {
-            console.log(i, 'buzz')
-        } else if (i % 3 === 0) {
-            console.log(i, 'fizz')
-        }
-    }
+// function fizzBuzz(num) {
+//     for (let i = 1; i <= num; i++) {
+//          if (i % 3 === 0 && i % 5 === 0) {
+//             console.log(i, 'fizzbuzz')
+//         } else if (i % 5 === 0) {
+//             console.log(i, 'buzz')
+//         } else if (i % 3 === 0) {
+//             console.log(i, 'fizz')
+//         }
+//     }
     
-}
+// }
 
-fizzBuzz(50)
+//fizzBuzz(50)
+
+
+// Використайте цикл while, щоб вивести в console всі числа від 0 до 20 включно.
+// let number = 0;
+// while (number <= 20) {
+//     console.log(number++);
+// }
+
+// Отримуйте від користувача число (кількість хвилин) через prompt
+// і виводьте у консоль рядок у форматі годин та хвилин.
+// Приклад: користувач вводить в prompt '70' -> в консолі відобразиться '01:10'.
+// Корисне посилання для відображення годин та хвилин у потрібному форматі ('01' замість '1'):
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart#examples
+
+let num = +prompt("Enter number");
+let hours = parseInt(num / 60);
+let minutes = num % 60;
+hours = String(hours).padStart(2, 0);
+minutes = String(minutes).padStart(2, 0);
+console.log(`${hours}:${minutes}`);
