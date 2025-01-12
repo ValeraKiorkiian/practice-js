@@ -131,9 +131,45 @@
 // Корисне посилання для відображення годин та хвилин у потрібному форматі ('01' замість '1'):
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart#examples
 
-let num = +prompt("Enter number");
-let hours = parseInt(num / 60);
-let minutes = num % 60;
-hours = String(hours).padStart(2, 0);
-minutes = String(minutes).padStart(2, 0);
-console.log(`${hours}:${minutes}`);
+// let num = +prompt("Enter number");
+// let hours = parseInt(num / 60);
+// let minutes = num % 60;
+// hours = String(hours).padStart(2, 0);
+// minutes = String(minutes).padStart(2, 0);
+// console.log(`${hours}:${minutes}`);
+
+
+// Напишіть код, який запитуватиме у користувача
+// логін за допомогою prompt і виводить результат в консоль браузера
+
+// Після цього додайте перевірку введеного користувачем значення:
+// Якщо відвідувач вводить "Адмін",
+// то prompt запитує пароль (не забудьте зберігти його у змінну для подальшої перевірки).
+// Якщо нічого не ввели або натиснули Cancel,
+// Вивести в alert строку "Скасовано"
+// В іншому випадку вивести в alert рядок "Я вас не знаю"
+// Пароль перевіряти так:
+// Якщо введено пароль "Я головний",
+// то вивести в alert рядок "Добрий день!",
+// в іншому випадку вивести в alert рядок "Невірний пароль!"
+
+
+const login = prompt("Ведіть логін");
+console.log(login);
+if (login === "Адмін") {
+    const password = prompt("Введіть пароль")
+    if (password === "Я головний") {
+        alert("Добрий день")
+    }
+    else {
+        alert("Невірний пароль")
+    }
+        
+}
+else if (login === "" || login === null) {
+    alert("Скасовано")
+
+}
+else {
+    alert("Я вас не знаю!")
+}
