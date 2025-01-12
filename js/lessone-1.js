@@ -43,25 +43,56 @@
 // "Вибачте, але ви маєте ввести значення від 1 до 4 включно".
 
 
-const num = prompt("Введіть число від 1 до 4 включно");
-let result = "";
+// const num = prompt("Введіть число від 1 до 4 включно");
+// let result = "";
 
-switch (num) {
-    case "1":
-        result = "зима";
-        break;
-    case "2":
-        result = "весна";
-        break;
-    case "3":
-        result = "літо";
-        break;
-    case "4":
-        result = "осінь";
-        break;
-    default:
-        result = "Вибачте, але ви маєте ввести значення від 1 до 4 включно";
+// switch (num) {
+//     case "1":
+//         result = "зима";
+//         break;
+//     case "2":
+//         result = "весна";
+//         break;
+//     case "3":
+//         result = "літо";
+//         break;
+//     case "4":
+//         result = "осінь";
+//         break;
+//     default:
+//         result = "Вибачте, але ви маєте ввести значення від 1 до 4 включно";
+// }
+
+
+// console.log(result);
+
+//3. Напишіть цикл, який виводить в консоль
+//числа от max до min по зменьшенню
+//Виведіть в консоль суму усіх парних чисел
+// * перепиши код на функцію getNumbers(min, max)
+
+// const max = 20;
+// const min = 1;
+// let total = 0;
+// for (let i = max; i >= min; i--) {
+//     console.log(i)
+//     if (i % 2 === 0) {
+//         total += i;
+        
+//     }
+// }
+// console.log(total);
+
+function getNumbers(min, max) {
+    let total = 0;
+    for (let i = max; i >= min; i--) {
+            console.log(i)
+            if (i % 2 === 0) {
+                total += i;
+                
+        }
+        
+    }
+    return total;
 }
-
-
-console.log(result);
+console.log(getNumbers(1, 20));
