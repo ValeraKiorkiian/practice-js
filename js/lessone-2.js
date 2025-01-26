@@ -99,3 +99,43 @@
 //   sum += total;
 // }
 // console.log(sum);
+
+
+// 9. Створіть об'єкт calculator з наступними методами:
+// read(a, b) - приймає два аргументи і зберігає їх
+// як властивості об'єкта
+// sum() повертає суму збережених значень (з перевіркою на наявність властивостей в об'єкті)
+// mult() перемножує збережені значення і повертає результат (з перевіркою на наявність властивостей в об'єкті)
+// raise() зводити першу властивість у ступінь другої і повертає результат (з перевіркою на наявність властивостей в об'єкті)
+// * винеси перевірку на наявність властивостей в об'єкті в окремий метод
+
+
+const calc = {
+    read(a, b) {
+        this.a = a;
+        this.b = b;
+    },
+    sum() {
+        if (this.exist())
+            return this.a + this.b;
+        return `not values`;
+    },
+    mult() {
+        if (this.exist())
+            return this.a * this.b;
+        return `not values`;
+    },
+    raise() {
+        if (this.exist())
+            return this.a ** this.b;
+        return `not values`;
+    },
+    exist() {
+            return this.a && this.b;
+    }
+
+}
+// calc.read(4, 5);
+console.log(calc.sum());
+console.log(calc.mult());
+console.log(calc.raise());
