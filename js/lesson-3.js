@@ -52,3 +52,13 @@
 
 const getNames = (array) => array.map((element) => element.name);
 console.log(getNames(tweets));
+
+function getRandomValues(array, prop) {
+  if (!array[0].hasOwnProperty(prop)){
+  // if (!array[0][prop]) {
+    return 'Sory, no such property in array!';
+  }
+  return array.map(element => element[prop]);
+
+}
+console.log(getRandomValues(tweets, "gender"));
