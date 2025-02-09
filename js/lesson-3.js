@@ -112,24 +112,64 @@ const tweets = [
 // Додай метод updateNumberOfPosts(amount), який оновлює кількість постів юзера
 // де amount - це число, кількість постів, що має додаватись до вже існуючих у властивості numbersOfPost
 
-class User {
+// class User {
 
-  constructor(params) {
-    this.userName = params.userName;
-    this.age = params.age;
-    this.numberOfPosts = params.numberOfPosts;
+//   constructor(params) {
+//     this.userName = params.userName;
+//     this.age = params.age;
+//     this.numberOfPosts = params.numberOfPosts;
 
+//   }
+//   getInfo() {
+//      return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numberOfPosts} публікацій.`
+//    }
+//   updateNumberOfPosts(amount) {
+//     this.numberOfPosts += amount;
+//    }
+// }
+
+// const user = new User({ userName: "Alla", age: 47, numberOfPosts: 100 });
+
+// console.log(user)
+// user.updateNumberOfPosts(25);
+// console.log(user.getInfo())
+
+
+
+// 3. Напиши класс Notes який управляє коллекцієй нотаток у
+// властивості items.
+// Нотатка це  об'єкт з властивостями text, priority
+// Додай класу статичну властивість Priority,
+// в якій буде зберігатись об'єкт з пріорітетами ("high", "middle", "low").
+// Додай методи getNotes(), addNote(note), removeNote(noteText)
+// updatePriority(noteText, newPriority)
+
+class Notes {
+  static Priority = {HIGH:"high",MIDDLE: "middle",LOW: "low"};
+  constructor() {
+    this.items = []
   }
-  getInfo() {
-     return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numberOfPosts} публікацій.`
-   }
-  updateNumberOfPosts(amount) {
-    this.numberOfPosts += amount;
-   }
+  getNotes() {
+    return this.items;
+  }
+  addNote(note) {
+    this.items.push(note);
+  }
+  removeNote(noteText) {
+    this.items = this.items.filter(item => item.text !== noteText);
+  }
+  updatePriority(noteText, newPriority) {
+    const note = this.items.find(item => item.text === noteText);
+    if (note) {
+      note.priority = newPriority;
+    }
+  }
+
 }
-
-const user = new User({ userName: "Alla", age: 47, numberOfPosts: 100 });
-
-console.log(user)
-user.updateNumberOfPosts(25);
-console.log(user.getInfo())
+const notes = new Notes();
+notes.addNote({ text: "Add", priority: Notes.Priority.MIDDLE });
+notes.addNote({ text: "rtyu", priority: Notes.Priority.HIGH });
+notes.addNote({ text: "qwe", priority: Notes.Priority.LOW });
+notes.updatePriority("qwe", Notes.Priority.MIDDLE)
+notes.removeNote("rtyu")
+console.log(notes.getNotes());
