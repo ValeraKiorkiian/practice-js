@@ -1,4 +1,4 @@
- const tweets = [
+const tweets = [
   { id: "000", name: "Alex", gender: "male", likes: 5, tags: ["js", "nodejs"] },
   {
     id: "001",
@@ -14,7 +14,7 @@
     likes: 17,
     tags: ["html", "js", "nodejs"],
   },
-{
+  {
     id: "003",
     name: "Borys",
     gender: "male",
@@ -28,7 +28,7 @@
     likes: 0,
     tags: ["js", "nodejs", "react"],
   },
-{
+  {
     id: "005",
     name: "Anna",
     gender: "female",
@@ -66,7 +66,6 @@
 // 2. Напишіть функцію getUsersWithJs(array), яка приймає масив об'єктів і повертає масив тільки тих користувачів,
 // у кого є тег "js" (властивість tags)
 
-
 // function getUsersWithJs(array) {
 //   return array.filter((element) => element.tags.includes("js"));
 // }
@@ -75,16 +74,27 @@
 // 3. Написати функцію getUsersWithGender(array, gender), яка приймає масив і стать
 // і повертає масив імен користувачів по цій статі (властивість gender)
 
-function getUsersWithGender(array, gender) {
-  // return array.filter((element) => element.gender === gender).map(element => element.name);
-  return array.reduce((usernames, element) => {
-    if (element.gender === gender) {
-      usernames.push(element.name);
-    }
-    console.log(usernames);
-    return usernames;
-  }, []);
-}
+// function getUsersWithGender(array, gender) {
+//   // return array.filter((element) => element.gender === gender).map(element => element.name);
+// //   return array.reduce((usernames, element) => {
+// //     if (element.gender === gender) {
+// //       usernames.push(element.name);
+// //     }
+// //     console.log(usernames);
+// //     return usernames;
+// //   }, []);
+// // }
 
-console.log(getUsersWithGender(tweets, "female"));
+// // console.log(getUsersWithGender(tweets, "female"));
 
+// 4. Написати функцію getSortedUniqueTags(array), яка приймає масив
+// і повертає масив всіх тегів усіх користувачів (поле tags), при цьому не повинно бути
+// повторювань тегів і вони мають бути відсортовані в алфавітному порядку.
+// Використай ланцюжок методів.
+const getSortedUniqueTags = (array) => {
+  return array
+    .flatMap((user) => user.tags)
+    .filter((tag, index, array) => array.indexOf(tag) === index)
+    .toSorted((a, b) => a.localeCompare(b));
+};
+console.log(getSortedUniqueTags(tweets));
