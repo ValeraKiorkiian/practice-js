@@ -96,3 +96,67 @@ table.addEventListener("click", (event) => {
     price.textContent
   }`;
 });
+
+// 3. Створити розмітку на основі масива даних, де у кожного елемента списку
+// буде вказано ім'я, кількість лайків і перелічені теги
+// в index.html додайте список ul.stats, в який буде рендеритись цей список
+// *властивість gender використай для додавання відповідного класу елементу списка
+const tweets = [
+  { id: "000", name: "Alex", gender: "male", likes: 5, tags: ["js", "nodejs"] },
+  {
+    id: "001",
+    name: "Kate",
+    gender: "female",
+    likes: 2,
+    tags: ["html", "css"],
+  },
+  {
+    id: "002",
+    name: "Maria",
+    gender: "female",
+    likes: 17,
+    tags: ["html", "js", "nodejs"],
+  },
+{
+    id: "003",
+    name: "Borys",
+    gender: "male",
+    likes: 8,
+    tags: ["css", "react"],
+  },
+  {
+    id: "004",
+    name: "Jhon",
+    gender: "male",
+    likes: 10,
+    tags: ["js", "nodejs", "react"],
+  },
+{
+    id: "005",
+    name: "Anna",
+    gender: "female",
+    likes: 3,
+    tags: ["js", "nodejs", "react"],
+  },
+  {
+    id: "006",
+    name: "Jhon",
+    gender: "male",
+    likes: 0,
+    tags: ["js", "nodejs", "react"],
+  },
+];
+
+const tweetslist = document.querySelector(".stats");
+
+const markup = tweets.map(({ name, gender, likes, tags }) =>
+    `<li class="stats-item ${gender}">
+        <p class="stats-name">${name}</p>
+        <p class="stats-likes">${likes} likes</p>
+        <p class="stats-tags">${tags}</p>
+      </li>`
+)
+    .join("");
+
+tweetslist.innerHTML = markup;
+
