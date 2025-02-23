@@ -6,6 +6,7 @@
   gap: 10px; /* Відстань між елементами списку */
   flex-wrap: wrap; /* Додаємо можливість переносу елементів на новий рядок при переповненні */
 }
+
 .stats-item {
   padding: 10px;
   border: 1px solid #ddd; /* Рамка */
@@ -38,4 +39,28 @@
 .stats-tags {
   font-style: italic; /* Похилий стиль для тегів */
   color: #0916ab; /* Синій колір для тегів */
+}
+
+#productTable {
+  border-collapse: collapse;
+  width: 800px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#productTable th,
+#productTable td {
+  border: 1px solid rgb(231, 156, 156);
+  padding: 8px;
+}
+
+#productTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#productDetails {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 24px;
 }

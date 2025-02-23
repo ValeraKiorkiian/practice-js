@@ -69,6 +69,34 @@
 
 // changeElement();
 
+// 5. Натиснувши кнопку "Подвоювати", збільшити значення
+// у кожному елементі списку у 2 рази
+
+// const btn = document.querySelector("#double");
+// const allLi = document.querySelectorAll(".listItem");
+
+// btn.addEventListener("click", (event) => {
+//   allLi.forEach((oneLi) => (oneLi.textContent *= 2));
+// });
+
+//  8. При натисканні на будь-який рядок у табличці відобразіть
+//  повідомлення з назвою продукту та його ціною.
+//  "Ви вибрали <product> за <price>".
+
+const table = document.querySelector("#productTable");
+const descr = document.querySelector("#productDetails");
+
+table.addEventListener("click", (event) => {
+  if (event.target.nodeName !== "TD") {
+    return;
+  }
+  const parent = event.target.parentNode;
+  const [product, price] = parent.children;
+  descr.textContent = `Ви вибрали ${product.textContent.toLowerCase()} за ${
+    price.textContent
+  }`;
+});
+
 // 3. Створити розмітку на основі масива даних, де у кожного елемента списку
 // буде вказано ім'я, кількість лайків і перелічені теги
 // в index.html додайте список ul.stats, в який буде рендеритись цей список
@@ -131,3 +159,4 @@ const markup = tweets.map(({ name, gender, likes, tags }) =>
     .join("");
 
 tweetslist.innerHTML = markup;
+
