@@ -83,80 +83,117 @@
 //  повідомлення з назвою продукту та його ціною.
 //  "Ви вибрали <product> за <price>".
 
-const table = document.querySelector("#productTable");
-const descr = document.querySelector("#productDetails");
+// const table = document.querySelector("#productTable");
+// const descr = document.querySelector("#productDetails");
 
-table.addEventListener("click", (event) => {
-  if (event.target.nodeName !== "TD") {
-    return;
-  }
-  const parent = event.target.parentNode;
-  const [product, price] = parent.children;
-  descr.textContent = `Ви вибрали ${product.textContent.toLowerCase()} за ${
-    price.textContent
-  }`;
-});
+// table.addEventListener("click", (event) => {
+//   if (event.target.nodeName !== "TD") {
+//     return;
+//   }
+//   const parent = event.target.parentNode;
+//   const [product, price] = parent.children;
+//   descr.textContent = `Ви вибрали ${product.textContent.toLowerCase()} за ${
+//     price.textContent
+//   }`;
+// });
 
-// 3. Створити розмітку на основі масива даних, де у кожного елемента списку
-// буде вказано ім'я, кількість лайків і перелічені теги
-// в index.html додайте список ul.stats, в який буде рендеритись цей список
-// *властивість gender використай для додавання відповідного класу елементу списка
-const tweets = [
-  { id: "000", name: "Alex", gender: "male", likes: 5, tags: ["js", "nodejs"] },
-  {
-    id: "001",
-    name: "Kate",
-    gender: "female",
-    likes: 2,
-    tags: ["html", "css"],
-  },
-  {
-    id: "002",
-    name: "Maria",
-    gender: "female",
-    likes: 17,
-    tags: ["html", "js", "nodejs"],
-  },
-{
-    id: "003",
-    name: "Borys",
-    gender: "male",
-    likes: 8,
-    tags: ["css", "react"],
-  },
-  {
-    id: "004",
-    name: "Jhon",
-    gender: "male",
-    likes: 10,
-    tags: ["js", "nodejs", "react"],
-  },
-{
-    id: "005",
-    name: "Anna",
-    gender: "female",
-    likes: 3,
-    tags: ["js", "nodejs", "react"],
-  },
-  {
-    id: "006",
-    name: "Jhon",
-    gender: "male",
-    likes: 0,
-    tags: ["js", "nodejs", "react"],
-  },
-];
+// // 3. Створити розмітку на основі масива даних, де у кожного елемента списку
+// // буде вказано ім'я, кількість лайків і перелічені теги
+// // в index.html додайте список ul.stats, в який буде рендеритись цей список
+// // *властивість gender використай для додавання відповідного класу елементу списка
+// const tweets = [
+//   { id: "000", name: "Alex", gender: "male", likes: 5, tags: ["js", "nodejs"] },
+//   {
+//     id: "001",
+//     name: "Kate",
+//     gender: "female",
+//     likes: 2,
+//     tags: ["html", "css"],
+//   },
+//   {
+//     id: "002",
+//     name: "Maria",
+//     gender: "female",
+//     likes: 17,
+//     tags: ["html", "js", "nodejs"],
+//   },
+// {
+//     id: "003",
+//     name: "Borys",
+//     gender: "male",
+//     likes: 8,
+//     tags: ["css", "react"],
+//   },
+//   {
+//     id: "004",
+//     name: "Jhon",
+//     gender: "male",
+//     likes: 10,
+//     tags: ["js", "nodejs", "react"],
+//   },
+// {
+//     id: "005",
+//     name: "Anna",
+//     gender: "female",
+//     likes: 3,
+//     tags: ["js", "nodejs", "react"],
+//   },
+//   {
+//     id: "006",
+//     name: "Jhon",
+//     gender: "male",
+//     likes: 0,
+//     tags: ["js", "nodejs", "react"],
+//   },
+// ];
 
-const tweetslist = document.querySelector(".stats");
+// const tweetslist = document.querySelector(".stats");
 
-const markup = tweets.map(({ name, gender, likes, tags }) =>
-    `<li class="stats-item ${gender}">
-        <p class="stats-name">${name}</p>
-        <p class="stats-likes">${likes} likes</p>
-        <p class="stats-tags">${tags}</p>
-      </li>`
-)
-    .join("");
+// const markup = tweets.map(({ name, gender, likes, tags }) =>
+//     `<li class="stats-item ${gender}">
+//         <p class="stats-name">${name}</p>
+//         <p class="stats-likes">${likes} likes</p>
+//         <p class="stats-tags">${tags}</p>
+//       </li>`
+// )
+//     .join("");
 
-tweetslist.innerHTML = markup;
+// tweetslist.innerHTML = markup;
+
+
+// 9. При натисканні на кожну з кнопок підсумовуються значення з data-атрибутів.
+// За натисканням на кнопку "Вивести результат" виводиться сума значення, а також статистика з
+// інформацією про те, яка кнопка була натиснута скільки разів.
+
+const calcBtn = document.querySelector(".statList");
+const resultBtn = document.querySelector("#resultButton");
+const resultSection = document.querySelector("#resultSection");
+
+calcBtn.addEventListener("click", countResult)
+
+const stat = {};
+let total = 0;
+function countResult(event) {
+    if (!event.target.classList.contains("calcButton")) {
+        return;
+    }
+    const number = event.target.dataset.number;
+    const key = event.target.textContent;
+    if (stat.hasOwnProperty(key)) {
+        stat[key] += 1;
+    }
+    else {
+        stat[key] = 1;
+    }
+    console.log("🚀 ~ countResult ~ stat:", stat)
+    total += Number(number);
+}
+
+resultBtn.addEventListener("click", showResult);
+
+function showResult() {
+    resultSection.textContent = `total: ${total}`;
+    total = 0;
+}
+
 
