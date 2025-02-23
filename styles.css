@@ -1,0 +1,57 @@
+.stats-item {
+  padding: 10px;
+  border: 1px solid #ddd; /* Рамка */
+  border-radius: 5px;
+  flex: 1 1 150px; /* Елементи мають мінімальну ширину 150px і можуть розширюватися */
+  display: flex;
+  flex-direction: column; /* Вирівнюємо вміст елементів вертикально */
+}
+
+.stats-item.male {
+  background-color: rgb(102, 102, 145);
+}
+.stats-item.female {
+  background-color: rgb(179, 108, 149);
+}
+
+.stats p {
+  margin: 5px 0; /* Відступи між текстовими блоками */
+}
+
+.stats-name {
+  color: #333;
+  font-weight: bold; /* Ім'я зробити жирним */
+  font-size: 1.2em; /* Збільшений розмір шрифту для імені */
+}
+.stats-likes {
+  color: rgb(163, 154, 154);
+}
+
+.stats-tags {
+  font-style: italic; /* Похилий стиль для тегів */
+  color: #0916ab; /* Синій колір для тегів */
+}
+
+#productTable {
+  border-collapse: collapse;
+  width: 800px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#productTable th,
+#productTable td {
+  border: 1px solid rgb(231, 156, 156);
+  padding: 8px;
+}
+
+#productTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#productDetails {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 24px;
+}
